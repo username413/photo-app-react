@@ -37,7 +37,7 @@ export default function App({ token }) {
             <main>
 
                 {/* Stories */}
-                <Stories></Stories>
+                <Stories token={token}></Stories>
 
                 {/* Posts */}
                 <div id="posts">

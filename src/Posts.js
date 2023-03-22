@@ -22,20 +22,5 @@ export default function Posts({ token }) {
         posts.map(post => {
             return <Post token={token} post={post} />
         })
-        // <div>
-        //     {
-        //         posts.map(post => {
-        //             return (
-        //                 <div className="card">
-        //                     <div key={post.id}>{post.user.username}</div>
-        //                     <div>
-        //                         <img src={post.image_url} alt="post"></img>
-        //                     </div>
-        //                     <div>{post.caption}</div>
-        //                 </div>
-        //             )
-        //         })
-        //     }
-        // </div>
     );
 }
