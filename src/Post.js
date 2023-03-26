@@ -5,16 +5,13 @@ import LikeButton from "./LikeButton";
 import { getHeaders } from "./utils";
 
 export default function Post({ token, post }) {
-    const noOfComments = post.comments.length;
     let commentToShow, viewAllComments;
-    if (noOfComments > 1) {
-        const latestComment = post.comments[noOfComments - 1];
-        commentToShow = <div id="comments"> <strong>{latestComment.user.username}</strong> {latestComment.text} </div>;
-        viewAllComments = <div> <button id="view-all-comments">View all {noOfComments} comments</button> </div>;
-    }
 
     const [currLikeID, setCurrLikeID] = useState(post.current_user_like_id);
     const [currBookmarkID, setCurrBookmarkID] = useState(post.current_user_bookmark_id);
+    const [likeCount, setLikeCount] = useState(post.likes.length);
+    const [commentsCount, setCommentCount] = useState(post.comments.length);
+    const [latestComment, setLatestComment] = useState(post.comments[post.comments.length - 1])
 
     async function requeryPost() {
         const res = await fetch("/api/posts/" + post.id, {
@@ -23,6 +20,14 @@ export default function Post({ token, post }) {
         const data = await res.json();
         setCurrLikeID(data.current_user_like_id);
         setCurrBookmarkID(data.current_user_bookmark_id);
+        setLikeCount(data.likes.length);
+        setCommentCount(data.comments.length);
+        setLatestComment(data.comments[data.comments.length - 1]);
+    }
+
+    if (commentsCount > 1) {
+        commentToShow = <div id="comments"> <strong>{latestComment.user.username}</strong> {latestComment.text} </div>;
+        viewAllComments = <div> <button id="view-all-comments">View all {commentsCount} comments</button> </div>;
     }
 
     return (
@@ -49,7 +54,7 @@ export default function Post({ token, post }) {
                 </span>
             </div>
             <div id="like-counter">
-                <strong>{post.likes.length} likes</strong>
+                <strong>{likeCount} likes</strong>
             </div>
             <div id="caption">
                 <strong>{post.user.username}</strong> {post.caption}
@@ -59,7 +64,7 @@ export default function Post({ token, post }) {
             <div id="days-ago">
                 {post.display_time}
             </div>
-            <AddComment />
+            <AddComment token={token} post={post} requeryPost={requeryPost} />
         </div>
     )
 }
