@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 
 * {
     box-sizing: border-box;
@@ -65,6 +65,14 @@ nav ul {
 
 nav ul {
     list-style-type: none;
+}
+
+nav ul button {
+    font-size: 16px;
+}
+
+#blue-highlight {
+    color: #2d699b;
 }
 
 aside {
@@ -161,7 +169,7 @@ main {
     font-size: 15px;
 }
 
-.suggestions .button {
+.suggestions button {
     text-align: center;
     color: #2d699b;
 }
@@ -174,6 +182,87 @@ main {
     min-width: 540px;
 }
 
+.card #un-three-dots {
+    font-family: 'Comfortaa', cursive;
+    font-size: 15pt;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card .post-icons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.card i {
+    font-size: 15pt;
+}
+
+.card #like-counter,
+.card #caption,
+.card #comments,
+.card #view-all-comments,
+.card .post-icons {
+    padding: 0px 10px 10px 10px;
+}
+
+.card #comments {
+    line-height: 30px;
+}
+
+.card #view-all-comments {
+    color: #2d699b;
+    font-size: 16px;
+}
+
+.card #view-all-comments:hover,
+.card #post-comment-button:hover,
+.suggestions button:hover,
+#blue-highlight:hover {
+    color: #777;
+}
+
+.card #days-ago {
+    font-size: 13px;
+    color: #575757;
+    padding: 0px 10px 0px 20px;
+}
+
+.card #add-comment {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    border-top: 1px solid lightgray;
+    padding: 20px;
+}
+
+.card #add-comment input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.card #comment-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.card #post-comment-button {
+    text-align: center;
+    color: #2d699b;
+    font-size: 16px;
+}
 
 @media (max-width: 900px) {
     aside {

@@ -12,7 +12,7 @@ export default function Suggestion({ suggestion }) {
                     suggested for you
                 </p>
             </div>
-            <button className="button" id={"button_" + suggestion.id}>
+            <button id={"button_" + suggestion.id}>
                 {suggestion.following ? "unfollow" : "follow"}
             </button>
         </section>

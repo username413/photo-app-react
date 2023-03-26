@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import Post from './Post';
-import { getHeaders } from './utils';
+import React, { useEffect, useState } from "react";
+import Post from "./Post";
+import { getHeaders } from "./utils";
 
 export default function Posts({ token }) {
     const [posts, setPost] = useState(null);

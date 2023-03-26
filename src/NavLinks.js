@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export default function NavLinks({ profile }) {
     if (!profile) {
@@ -6,9 +6,15 @@ export default function NavLinks({ profile }) {
     }
     return (
         <ul>
-            <li>API Docs</li>
-            <li><span>{profile.username}</span></li>
-            <li>Sign out</li>
+            <li>
+                <button id="blue-highlight">API Docs</button>
+            </li>
+            <li>
+                <button>{profile.username}</button>
+                </li>
+            <li>
+                <button id="blue-highlight">Sign out</button>
+            </li>
         </ul>
     );
 
