@@ -220,6 +220,7 @@ main {
 .card #view-all-comments {
     color: #2d699b;
     font-size: 16px;
+    padding-left: 15px;
 }
 
 .card #view-all-comments:hover,
