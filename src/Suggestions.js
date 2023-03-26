@@ -23,7 +23,7 @@ export default function Suggestions({ token }) {
             <p>Suggestions for you</p>
             {
                 suggestions.map(suggestion => {
-                    return <Suggestion suggestion={suggestion} />
+                    return <Suggestion suggestion={suggestion} token={token} />
                 })
             }
         </section>
