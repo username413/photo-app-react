@@ -31,7 +31,7 @@ export default function App({ token }) {
             {/* Right Panel */}
             <aside>
                 <Profile profile={profile} />
-                <Suggestions></Suggestions>
+                <Suggestions token={token} />
             </aside>
 
             <main>

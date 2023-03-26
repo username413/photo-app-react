@@ -14,7 +14,7 @@ export default function Stories({ token }) {
         }
         getStories();
     }, [token])
-    
+
     if (!stories) {
         return "";
     }

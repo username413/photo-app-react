@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Post({ token, post }) {
+export default function Post({ post }) {
     return (
         <div className="card">
             <div key={post.id}>{post.user.username}</div>
