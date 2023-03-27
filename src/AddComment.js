@@ -17,16 +17,12 @@ export default function AddComment({ token, post, requeryPost }) {
         userIn.value = "";
         userIn.focus();
     }
-    
+
     return (
         <div id="add-comment">
-            <div id="comment-input">
-                <form action="emote"><i className="fa-regular fa-face-smile"></i></form>
-                <input autoFocus type="text" id={"comment-in-" + postID} placeholder="Add a comment.." />
-            </div>
-            <div>
-                <button type="submit" id="post-comment-button" onClick={comment}>Post</button>
-            </div>
+            <form action="emote"><i className="fa-regular fa-face-smile"></i></form>
+            <input type="text" id={"comment-in-" + postID} placeholder="Add a comment.." />
+            <button type="submit" id="post-comment-button" onClick={comment}>Post</button>
         </div>
     );
 }

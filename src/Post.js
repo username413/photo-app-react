@@ -25,9 +25,44 @@ export default function Post({ token, post }) {
         setLatestComment(data.comments[data.comments.length - 1]);
     }
 
+    function openModal() {
+        const modalElement = document.querySelector('.modal-bg');
+        modalElement.classList.remove('hidden');
+        modalElement.setAttribute('aria-hidden', 'false');
+        document.querySelector('.close').focus();
+        fillModal(post.id);
+    }
+
+    async function fillModal(postID) {
+        const res = await fetch("/api/posts/" + postID, {
+            headers: getHeaders(token)
+        });
+        const data = await res.json();
+        
+        document.querySelector(".modal-body>.image").style.backgroundImage = `url(${data.image_url})`;
+        document.querySelector(".the-comments").innerHTML = "";
+        document.querySelector(".the-comments").insertAdjacentHTML("beforeend", `
+            <h3>
+                <img src="${data.user.image_url}"
+                    alt="post creator profile picture" id="post-creator-pfp" />
+                <button id="logged-in-username">${data.user.username}</button>
+            </h3>
+        `);
+        document.querySelector("#post-creator-pfp").src = data.user.image_url;
+
+        for (const postComment of data.comments) {
+            const modalCommentChunk = `
+                <div class="comments">
+                    <strong>${postComment.user.username}</strong> ${postComment.text}
+                    <p id="days-ago">${postComment.display_time}</p>
+                </div>`;
+            document.querySelector(".the-comments").insertAdjacentHTML("beforeend", modalCommentChunk);
+        };
+    }
+
     if (commentsCount > 1) {
         commentToShow = <div id="comments"> <strong>{latestComment.user.username}</strong> {latestComment.text} </div>;
-        viewAllComments = <div> <button id="view-all-comments">View all {commentsCount} comments</button> </div>;
+        viewAllComments = <div> <button id="view-all-comments" onClick={openModal} className="open">View all {commentsCount} comments</button> </div>;
     }
 
     return (

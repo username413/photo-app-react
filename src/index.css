@@ -239,6 +239,7 @@ main {
 .card #add-comment {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 10px;
     border-top: 1px solid lightgray;
     padding: 20px;
@@ -249,19 +250,66 @@ main {
     outline: none;
     font-size: 16px;
     margin-left: 10px;
-}
-
-.card #comment-input {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
 }
 
 .card #post-comment-button {
     text-align: center;
     color: #2d699b;
     font-size: 16px;
+}
+
+.modal-bg {
+    background: #3b3b3bcc;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    width: 70vw;
+    height: 80vh;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.close {
+    font-size: 30px;
+    position: absolute;
+    right: 1vw;
+    top: 0vw;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.modal-body {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    height: 80vh;
+}
+
+.modal-body>.image {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.the-comments {
+    padding: 0 20px;
+    height: 100%;
+    overflow-y: auto;
 }
 
 @media (max-width: 900px) {
